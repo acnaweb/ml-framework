@@ -2,6 +2,7 @@ import logging
 import pandas as pd
 import pandas_profiling
 from settings import PROCESSED_DATASET, RAW_DATASET, PROCESSED_REPORT_PROFILER, CREATE_PROFILER
+from utils import serialize_dataset, unserialize_dataset
 
 
 class DataPreparationError(Exception):
@@ -40,7 +41,7 @@ class DataPreparation:
         """Save data"""
         logging.info("saving data")
 
-        self.dataset.to_csv(PROCESSED_DATASET, index=False)
+        serialize_dataset(self.dataset, PROCESSED_DATASET)        
 
         if CREATE_PROFILER: 
             profile = pandas_profiling.ProfileReport(self.dataset)

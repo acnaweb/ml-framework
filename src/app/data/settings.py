@@ -12,7 +12,7 @@ CREATE_PROFILER = False
 
 
 def print_settings():
-    logging.info("*** current settings ***")
+    logging.info("*** dataset settings ***")
 
     logging.info("RAW_DATASET={}".format(RAW_DATASET))
     logging.info("PROCESSED_DATASET={}".format(PROCESSED_DATASET))

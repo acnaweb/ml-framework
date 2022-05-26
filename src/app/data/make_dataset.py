@@ -1,12 +1,11 @@
 import logging
-import click
 from data_ingestion import DataIngestion
 from data_prep import DataPreparation
 from settings import *
 
-@click.command
 def main():
     logging.info("*** start making dataset ***")
+    
     # perform data ingestion
     dataIngestion = DataIngestion()
     dataIngestion.run_task()

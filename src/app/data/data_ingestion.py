@@ -2,6 +2,7 @@ import logging
 import pandas as pd
 import pandas_profiling
 from settings import RAW_DATASET, CREATE_PROFILER, RAW_REPORT_PROFILER
+from utils import serialize_dataset, unserialize_dataset
 
 
 class ValidationError(Exception):
@@ -34,7 +35,7 @@ class DataIngestion:
         """Load data"""
         logging.info("loading data")
 
-        self.dataset = pd.read_csv("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data", sep=",")
+        self.dataset =  unserialize_dataset("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data")
 
     
     def validate_data(self):
@@ -48,8 +49,8 @@ class DataIngestion:
         """Save data"""
         logging.info("saving data")
 
-        self.dataset.to_csv(RAW_DATASET, index=False)
-
+        serialize_dataset(self.dataset, RAW_DATASET)
+        
         if CREATE_PROFILER: 
             profile = pandas_profiling.ProfileReport(self.dataset)
             profile.to_file(RAW_REPORT_PROFILER)

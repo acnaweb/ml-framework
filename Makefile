@@ -10,3 +10,7 @@ clean:
 setup: clean
 	chmod +x scripts/*
 	scripts/create_folder.sh
+
+
+run_train: 
+	python src/app/models/train_model.py
