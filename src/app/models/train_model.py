@@ -23,8 +23,6 @@ def do_train():
 
     perform_experiment(Model(), dataset, exp_id)
 
-    #return model.serialize()
-
     logging.info("*** finish training model ***")
 
 if __name__ == "__main__":
