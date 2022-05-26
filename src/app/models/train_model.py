@@ -1,5 +1,4 @@
 import logging
-import click
 from model import Model
 from settings import *
 from utils import unserialize_dataset
@@ -14,11 +13,13 @@ def do_train():
     model.train(dataset)
     model.validate_training()
 
+    return model.serialize()
+
     logging.info("*** finish training model ***")
 
 if __name__ == "__main__":
     logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 
     print_settings()
-    do_train()
+    model_data = do_train()
 

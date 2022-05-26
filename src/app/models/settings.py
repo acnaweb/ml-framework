@@ -12,7 +12,6 @@ params = {
 PROCESSED_DATASET = "data/processed/dataset.csv"
 
 
-
 def print_settings():
     logging.info("*** model parameters ***")
 
