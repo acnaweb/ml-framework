@@ -8,7 +8,7 @@ RAW_DATASET = "data/raw/dataset.csv"
 PROCESSED_DATASET = "data/processed/dataset.csv"
 RAW_REPORT_PROFILER = "reports/profiler_raw.html"
 PROCESSED_REPORT_PROFILER = "reports/profiler_processed.html"
-CREATE_PROFILER = True
+CREATE_PROFILER = False
 
 
 def print_settings():

@@ -7,5 +7,6 @@ run_etl: clean
 clean: 
 	scripts/clean.sh	
 
-setup:
+setup: clean
 	chmod +x scripts/*
+	scripts/create_folder.sh
