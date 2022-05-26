@@ -2,7 +2,7 @@ import logging
 import pandas as pd
 import pandas_profiling
 from settings import PROCESSED_DATASET, RAW_DATASET, PROCESSED_REPORT_PROFILER, CREATE_PROFILER
-from utils import serialize_dataset, unserialize_dataset
+from utils import serialize_dataset
 
 
 class DataPreparationError(Exception):

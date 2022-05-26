@@ -1,11 +1,18 @@
 import logging
 import pickle
+import mlflow
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
 from settings import params
+
+def load(path):
+    return mlflow.pyfunc.load_model(path)
+
+def predict(model, data):
+    return model.predict(data)
 
 class InvalidModelError(Exception):
     pass

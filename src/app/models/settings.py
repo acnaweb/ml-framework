@@ -11,6 +11,7 @@ params = {
 
 PROCESSED_DATASET = "data/processed/dataset.csv"
 EXPERIMENT_NAME = "iris-demo"
+MLFLOW_REMOTE_URI = "0.0.0.0:5000"
 
 
 def print_settings():

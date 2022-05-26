@@ -3,7 +3,7 @@ import mlflow
 import mlflow.sklearn
 # others
 import time
-
+import logging
 
 def track_performance_metrics(accuracy, precision, recall, f1_micro, f1_macro,
                               accuracy_train, precision_train, recall_train, f1_micro_train, f1_macro_train,
@@ -27,9 +27,10 @@ def track_performance_metrics(accuracy, precision, recall, f1_micro, f1_macro,
 
 
 def perform_experiment(model, dataset, exp_id):
+    logging.info("experiment id {}".format(exp_id))
+
     with mlflow.start_run(experiment_id = exp_id):
         mlflow.sklearn.autolog()
-        mlflow.log_param('model', 'logistic_regression')
         
         # training model
         start_training = time.time()
