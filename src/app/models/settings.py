@@ -10,6 +10,7 @@ params = {
 }
 
 PROCESSED_DATASET = "data/processed/dataset.csv"
+EXPERIMENT_NAME = "iris-demo"
 
 
 def print_settings():

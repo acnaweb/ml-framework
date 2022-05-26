@@ -3,10 +3,9 @@ import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+
 from settings import params
-
-
-
 
 class InvalidModelError(Exception):
     pass
@@ -29,7 +28,7 @@ class Model(LogisticRegression):
         self.X_train_transform = self.scaler.fit_transform(self.X_train)
         self.X_test_transform = self.scaler.transform(self.X_test)
 
-        self.fit(self.X_train_transform, self.y_train)        
+        self.fit(self.X_train_transform, self.y_train)                  
 
         logging.info("end training ")
 
@@ -39,14 +38,18 @@ class Model(LogisticRegression):
     def validate_training(self):
         """Validate that the training was successful."""
         logging.info("validating training")
+       
 
-        print(self.score(self.X_test_transform, self.y_test))
-
-        y_predictions = self.predict(self.X_test_transform)    
-
-        if y_predictions[0] != "Iris-virginica":
-            raise InvalidModelError("Invalid prediction {}".format(y_predictions[0]))
-        
     def serialize(self):
-        """Serialize current model instance into a stream of bytes."""
+        """Serialize current model instance into a stream of bytes"""
         return pickle.dumps(self)
+
+
+    def evaluate_performance(self, y_test, y_pred):
+        accuracy = accuracy_score(y_test, y_pred)
+        f1_macro = f1_score(y_test, y_pred, average='macro')
+        f1_micro = f1_score(y_test, y_pred, average='micro')
+        precision = precision_score(y_test, y_pred, average='micro')
+        recall = recall_score(y_test, y_pred, average='micro')
+   
+        return accuracy, precision, recall, f1_micro, f1_macro

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ac/Projects/ml-framework/mlruns/1/5308063cc85c41d0a7c6618e80f6830a/artifacts
+end_time: 1653558099111
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: 5308063cc85c41d0a7c6618e80f6830a
+run_uuid: 5308063cc85c41d0a7c6618e80f6830a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1653558099091
+status: 4
+tags: []
+user_id: ac

@@ -1,0 +1,4 @@
+artifact_location: file:///home/ac/Projects/ml-framework/mlruns/3
+experiment_id: '3'
+lifecycle_stage: active
+name: iris-demos
