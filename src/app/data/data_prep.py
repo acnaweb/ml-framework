@@ -1,6 +1,7 @@
 import logging
 import pandas as pd
-from settings import PROCESSED_DATASET, RAW_DATASET
+import pandas_profiling
+from settings import PROCESSED_DATASET, RAW_DATASET, PROCESSED_REPORT_PROFILER, CREATE_PROFILER
 
 
 class DataPreparationError(Exception):
@@ -40,6 +41,10 @@ class DataPreparation:
         logging.info("saving data")
 
         self.dataset.to_csv(PROCESSED_DATASET, index=False)
+
+        if CREATE_PROFILER: 
+            profile = pandas_profiling.ProfileReport(self.dataset)
+            profile.to_file(PROCESSED_REPORT_PROFILER)
 
 
     def set_header(self):

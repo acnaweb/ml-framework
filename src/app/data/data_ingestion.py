@@ -1,7 +1,7 @@
 import logging
 import pandas as pd
 import pandas_profiling
-from settings import RAW_DATASET, CREATE_PROFILER, REPORT_PROFILER
+from settings import RAW_DATASET, CREATE_PROFILER, RAW_REPORT_PROFILER
 
 
 class ValidationError(Exception):
@@ -52,5 +52,5 @@ class DataIngestion:
 
         if CREATE_PROFILER: 
             profile = pandas_profiling.ProfileReport(self.dataset)
-            profile.to_file(REPORT_PROFILER)
+            profile.to_file(RAW_REPORT_PROFILER)
 
